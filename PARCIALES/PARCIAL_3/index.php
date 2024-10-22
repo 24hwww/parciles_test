@@ -6,7 +6,16 @@ $pagina = isset($_GET['pagina']) ? strip_tags(trim($_GET['pagina'])) : '';
 $cerrar_sesion = isset($_GET['cerrar_sesion']) ? intval($_GET['cerrar_sesion']) : 0;
 
 if($cerrar_sesion == 1){
-    setcookie('session', '', time()-1000);
+    // eliminar sesion
+    if (isset($_SERVER['HTTP_COOKIE'])) {
+        $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
+        foreach($cookies as $cookie) {
+            $parts = explode('=', $cookie);
+            $name = trim($parts[0]);
+            setcookie($name, '', time()-1000);
+            setcookie($name, '', time()-1000, '/');
+        }
+    }
     header('Location: ./index.php?success=2');
 }
 
