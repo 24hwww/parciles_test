@@ -33,4 +33,6 @@ setcookie("session[inicio_sesion]", time());
 setcookie("session[tareas]", '');
 
 $_SESSION['tareas'] = [];
+header('Location: ./index.php?success=1');
+exit;
 ?>
