@@ -12,4 +12,19 @@ if($user == '' || $pass == ''){
     exit;
 }
 
+$datos_invalidos = false;
+if($datos_predefinidos['user'] !== $user){
+$datos_invalidos = true;
+}
+if($datos_predefinidos['pass'] !== $pass){
+$datos_invalidos = true;
+}
+
+if($datos_invalidos !== false){
+    header('Location: ./index.php?error=1');
+    exit;
+}
+
+
+
 ?>
