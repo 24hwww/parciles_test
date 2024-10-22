@@ -25,7 +25,12 @@ if($datos_invalidos !== false){
     exit;
 }
 
-$_SESSION['user'] = $user;
-$_SESSION['inicio_sesion'] = time();
+#$_SESSION['user'] = $user;
+#$_SESSION['inicio_sesion'] = time();
+
+setcookie("session[user]", $user);
+setcookie("session[inicio_sesion]", time());
+setcookie("session[tareas]", '');
+
 $_SESSION['tareas'] = [];
 ?>
