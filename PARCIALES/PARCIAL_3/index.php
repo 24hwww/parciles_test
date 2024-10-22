@@ -1,4 +1,3 @@
-
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,11 +62,11 @@
 
                 <div class="form-group">
                     <label for="user">Usuario</label>
-                    <input type="text" id="user" class="form-control" autocomplete="off" required/>
+                    <input type="text" id="user" name="user" class="form-control" autocomplete="off" required/>
                 </div>
                 <div class="form-group">
                     <label for="password">Contraseña</label>
-                    <input type="password" id="password" class="form-control" autocomplete="off" required/>
+                    <input type="password" id="password" name="password" class="form-control" autocomplete="off" required/>
                 </div>
 
                 <button class="btn btn-success" type="submit">Entrar</button>
