@@ -2,7 +2,7 @@
 session_start();
 $usuario_inicio_sesion = isset($_SESSION['user']) ? true : false;
 $tareas = isset($_SESSION['tareas']) ? $_SESSION['tareas'] : [];
-
+$pagina = isset($_GET['pagina']) ? strip_tags(trim($_GET['pagina'])) : '';
 print_r($_SESSION);
 
 print_r($_COOKIE);
@@ -71,6 +71,7 @@ print_r($_COOKIE);
             </div>
             <div class="panel-body">
                 <?php
+                /** MANEJO DE ERRORES DE INICIO DE SESION **/
                 $mensaje = '';
                 $error = isset($_GET['error']) ? intval($_GET['error']) : '';
                 switch ($error) {
