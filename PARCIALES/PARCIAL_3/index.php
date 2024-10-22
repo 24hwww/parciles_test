@@ -66,10 +66,10 @@
                     $mensaje = "No deje ningun campo vacio";
                     break;
                 case 1:
-                    $mensaje = "---";
+                    $mensaje = "Usuario o contraseña son invalidos";
                     break;
                 case 2:
-                    $mensaje = "3333";
+                    $mensaje = "";
                     break;
                 default:
                     $mensaje = "Existe un error.";
