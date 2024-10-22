@@ -58,6 +58,23 @@
         <h3 class="panel-title">Formulario de acceso</h3>
         </div>
         <div class="panel-body">
+            <?php
+            $mensaje = '';
+            $error = isset($_GET['error']) ? intval($_GET['error']) : '';
+            switch ($error) {
+                case 0:
+                    $mensaje = "No deje ningun campo vacio";
+                    break;
+                case 1:
+                    $mensaje = "---";
+                    break;
+                case 2:
+                    $mensaje = "3333";
+                    break;
+                default:
+                    $mensaje = "Existe un error.";
+            }
+            ?>
             <form method="POST" action="login.php">
 
                 <div class="form-group">
