@@ -2,6 +2,11 @@
 session_start();
 $usuario_inicio_sesion = isset($_SESSION['user']) ? true : false;
 $tareas = isset($_SESSION['tareas']) ? $_SESSION['tareas'] : [];
+
+print_r($_SESSION);
+
+print_r($_COOKIE);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
