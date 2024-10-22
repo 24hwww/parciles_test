@@ -25,6 +25,7 @@ if($datos_invalidos !== false){
     exit;
 }
 
-
-
+$_SESSION['user'] = $user;
+$_SESSION['inicio_sesion'] = time();
+$_SESSION['tareas'] = [];
 ?>
