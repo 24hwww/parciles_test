@@ -1,8 +1,18 @@
 <?php 
 session_start();
-$usuario_inicio_sesion = isset($_SESSION['user']) ? true : false;
+
 $tareas = isset($_SESSION['tareas']) ? $_SESSION['tareas'] : [];
 $pagina = isset($_GET['pagina']) ? strip_tags(trim($_GET['pagina'])) : '';
+$cerrar_sesion = isset($_GET['cerrar_sesion']) ? intval($_GET['cerrar_sesion']) : 0;
+
+if($cerrar_sesion == 1){
+    setcookie('session', '', time()-1000);
+    header('Location: ./index.php?success=2');
+}
+
+$sesion_cookie = isset($_COOKIE['session']) ? $_COOKIE['session'] : [];
+$usuario_inicio_sesion = isset($sesion_cookie['user']) ? true : false;
+
 print_r($_SESSION);
 
 print_r($_COOKIE);
@@ -48,6 +58,9 @@ print_r($_COOKIE);
           <ul class="nav navbar-nav">
             <li class="active"><a href="./index.php">Inicio</a></li>
             <li><a href="?tareas">Nueva Tarea</a></li>
+            <?php if($usuario_inicio_sesion !== false): ?>
+            <li><a href="?cerrar_sesion=1">Cerrar Sesión</a></li>    
+            <?php endif; ?>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -73,6 +86,7 @@ print_r($_COOKIE);
                 <?php
                 /** MANEJO DE ERRORES DE INICIO DE SESION **/
                 $mensaje = '';
+                $success = isset($_GET['success']) ? intval($_GET['success']) : '';
                 $error = isset($_GET['error']) ? intval($_GET['error']) : '';
                 switch ($error) {
                     case 0:
@@ -89,6 +103,22 @@ print_r($_COOKIE);
                 }
                 if($mensaje !== '' && $error !== ''){
                     echo sprintf('<div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><span class="sr-only">Error:</span> %s </div>', $mensaje);
+                }
+                /*** ***/
+                switch ($success) {
+                    case 1:
+                        $mensaje = "Sesion iniciada";
+                        break;
+                    case 2:
+                        $mensaje = "Sesion cerrada";
+                        break;
+                    case 2:
+                        $mensaje = "";
+                        break;
+                }
+
+                if($mensaje !== '' && $success !== ''){
+                    echo sprintf('<div class="alert alert-success" role="alert"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span><span class="sr-only">Exito:</span> %s </div>', $mensaje);
                 }
                 ?>
                 <form method="POST" action="login.php">
