@@ -130,17 +130,17 @@ print_r($_COOKIE);
                         <tbody> 
                             <tr> 
                                 <th scope="row">1</th> 
-                                <td>Mark</td> 
+                                <td>---</td> 
                                 <td>Otto</td> 
                             </tr> 
                                 <tr> 
                                     <th scope="row">2</th> 
-                                    <td>Jacob</td> 
+                                    <td>---</td> 
                                     <td>Thornton</td> 
                                 </tr> 
                                 <tr> 
                                     <th scope="row">3</th> 
-                                    <td>Larry</td> 
+                                    <td>---</td> 
                                     <td>the Bird</td> 
                                 </tr> 
                         </tbody> 
