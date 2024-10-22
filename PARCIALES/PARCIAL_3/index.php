@@ -79,6 +79,7 @@ print_r($_COOKIE);
     <main>
     <div class="container">
             
+            <?php if($usuario_inicio_sesion !== true): ?>
             <div class="pantalla_1">
             <div class="starter-template">
             <h1>Inicio de Sesión</h1>
@@ -151,7 +152,9 @@ print_r($_COOKIE);
             </div>
 
             </div>
+            <?php endif; ?>
 
+            <?php if($usuario_inicio_sesion !== false): ?>
             <div class="pantalla_2">
                 <div class="starter-template">
                 <h1>Tareas</h1>
@@ -188,6 +191,7 @@ print_r($_COOKIE);
                 </div>
                 </div>
             </div>
+            <?php endif; ?>
 
     </main>
 
