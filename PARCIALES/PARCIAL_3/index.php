@@ -22,9 +22,13 @@ if($cerrar_sesion == 1){
 $sesion_cookie = isset($_COOKIE['session']) ? $_COOKIE['session'] : [];
 $usuario_inicio_sesion = isset($sesion_cookie['user']) ? true : false;
 
+echo '<pre>';
 print_r($_SESSION);
+echo '</pre>';
 
+echo '<pre>';
 print_r($_COOKIE);
+echo '</pre>';
 
 ?>
 <!DOCTYPE html>
@@ -232,6 +236,15 @@ print_r($_COOKIE);
                         </tr> 
                         </thead> 
                         <tbody> 
+                            <?php if(is_array($tareas) && count($tareas) > 0){ ?>
+                                <?php
+                                    $usuario = $ 
+                                ?>
+                            <?php }else{ ?>
+                                <tr> 
+                                <td colspan="3">Aun no tiene tareas creadas.</td> 
+                                </tr> 
+                            <?php } ?>
                             <tr> 
                                 <th scope="row">1</th> 
                                 <td>---</td> 
