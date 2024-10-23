@@ -25,7 +25,7 @@ if (!str_contains($fecha_limite, '/')) {
 
 $fecha_post = explode('/',$fecha_limite);
 
-if (is_array($fecha_post) && count($fecha_post) > 0) {
+if (!is_array($fecha_post) || count($fecha_post) == 0) {
     header('Location: ./index.php?pagina=nueva-tarea&error=3');
     exit;
 }
