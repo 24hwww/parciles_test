@@ -42,13 +42,14 @@ if($fecha_limite_timestamp <= $fecha_actual_timestamp){
     exit;
 }
 
-$tareas[] = array_merge($tareas, [
+$tareas = is_array($tareas) ? $tareas : [];
+$data_tareas = array_merge($tareas, [
     'user' => $usuario,
     'tareas' => $tarea,
     'fecha_limite' => $fecha_limite,
 ]);
 
-$_SESSION['tareas'] = $tareas;
+$_SESSION['tareas'] = $data_tareas;
 
 if(is_array($_SESSION['tareas']) && count($_SESSION['tareas']) > 0){
     header('Location: ./index.php?pagina=nueva-tarea&success=1');
