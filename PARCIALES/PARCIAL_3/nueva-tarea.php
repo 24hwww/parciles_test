@@ -48,7 +48,7 @@ $tareas[] = array_merge($tareas, [
     'fecha_limite' => $fecha_limite,
 ]);
 
-$_SESSION['tareas'] = [];
+$_SESSION['tareas'] = $tareas;
 
 if(is_array($_SESSION['tareas']) && count($_SESSION['tareas']) > 0){
     header('Location: ./index.php?pagina=nueva-tarea&success=1');
