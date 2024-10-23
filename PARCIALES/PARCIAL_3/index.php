@@ -176,8 +176,11 @@ print_r($_COOKIE);
                         $mensaje = "No deje campos vacios";
                         break;
                     case 3:
-                        $mensaje = "La fecha debe ser valida y futura";
+                        $mensaje = "Indique una fecha valida";
                         break;
+                    case 4:
+                        $mensaje = "La fecha limite debe ser valida y futura";
+                        break;                        
                     default:
                         $mensaje = "Existe un error.";
                 }
