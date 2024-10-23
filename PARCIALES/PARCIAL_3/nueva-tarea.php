@@ -43,11 +43,14 @@ if($fecha_limite_timestamp <= $fecha_actual_timestamp){
 }
 
 $tareas = is_array($tareas) ? $tareas : [];
-$data_tareas = array_merge($tareas, [
-    'user' => $usuario,
-    'tareas' => $tarea,
-    'fecha_limite' => $fecha_limite,
-]);
+
+$nueva_tarea = array(
+'user' => $usuario,
+'tareas' => $tarea,
+'fecha_limite' => $fecha_limite,
+);
+
+$data_tareas = $tareas + $nueva_tarea;
 
 $_SESSION['tareas'] = $data_tareas;
 
