@@ -199,7 +199,7 @@ print_r($_COOKIE);
                 }
                 ?>
 
-                    <form method="POST" action="nueva_tarea.php">
+                    <form method="POST" action="nueva-tarea.php">
                     <div class="form-group">
                         <label for="tarea">Tarea</label>
                         <textarea id="tarea" class="form-control" name="tarea" required></textarea>
