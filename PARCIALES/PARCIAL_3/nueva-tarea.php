@@ -52,7 +52,7 @@ $nueva_tarea = array(
 
 $tareas[] = $nueva_tarea;
 
-$_SESSION['tareas'] = '';
+$_SESSION['tareas'] = $tareas;
 
 if(is_array($_SESSION['tareas']) && count($_SESSION['tareas']) > 0){
     header('Location: ./index.php?pagina=nueva-tarea&success=1');
