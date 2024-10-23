@@ -23,9 +23,14 @@ if (!str_contains($fecha_limite, '/')) {
     exit;
 }
 
-list($day, $month, $year, $hour, $minute) = split('[/ :]', $fecha_limite); 
-$timestamp = mktime($hour, $minute, 0, $month, $day, $year);
+$fecha_post = explode('/',$fecha_limite);
+$dd = isset($fecha_post[0]) ? intval($fecha_post[0]) : '';
+$mm = isset($fecha_post[1]) ? intval($fecha_post[1]) : '';
+$yyyy = isset($fecha_post[2]) ? intval($fecha_post[2]) : '';
+
+$timestamp = mktime(0, 0, 0, $mm, $dd, $yyyy);
 $fecha_limite_timestamp = date("r", $timestamp);
+
 $fecha_actual = date('Y-m-d');
 $fecha_actual_timestamp = strtotime("now");
 
