@@ -24,28 +24,4 @@ if (!str_contains($fecha_limite, '/')) {
 }
 
 $fecha_post = explode('/',$fecha_limite);
-
-if (is_array($fecha_post) && count($fecha_post) > 0) {
-
-$dd = isset($fecha_post[0]) ? intval($fecha_post[0]) : 0;
-$mm = isset($fecha_post[1]) ? intval($fecha_post[1]) : 0;
-$yyyy = isset($fecha_post[2]) ? intval($fecha_post[2]) : 0;
-
 print_r($fecha_post);
-
-$timestamp = mktime(0, 0, 0, $mm, $dd, $yyyy);
-$fecha_limite_timestamp = date("r", $timestamp);
-
-$fecha_actual = date('Y-m-d');
-$fecha_actual_timestamp = strtotime("now");
-
-/*if($fecha_limite_timestamp < $fecha_actual_timestamp){
-    header('Location: ./index.php?pagina=nueva-tarea&error=4');
-    exit;
-}*/
-
-
-}else{
-    header('Location: ./index.php?pagina=nueva-tarea&error=3');
-    exit;
-}
