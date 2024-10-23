@@ -18,10 +18,6 @@ if($tarea == '' || $fecha_limite == ''){
     exit;
 }
 
-if (!str_contains($fecha_limite, '/')) {
-    header('Location: ./index.php?pagina=nueva-tarea&error=3');
-    exit;
-}
 
 $fecha_post = explode('/',$fecha_limite);
 print_r($fecha_post);
