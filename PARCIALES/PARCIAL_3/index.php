@@ -234,6 +234,15 @@ echo '</pre>';*/
                 <div class="">
                 <div class="panel panel-default"> <div class="panel-heading">Listado de tareas</div> 
                 <div class="panel-body">
+
+                <?php
+                /** MANEJO DE ERRORES DE LISTADO **/
+                $mensaje = '';
+                $success = isset($_GET['success']) ? intval($_GET['success']) : '';
+                $error = isset($_GET['error']) ? intval($_GET['error']) : '';
+                ?>
+
+
                     <div class="col-md-6">
                         <p>Tareas agregadas</p> 
                     </div>
