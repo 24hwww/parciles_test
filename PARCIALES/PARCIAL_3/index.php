@@ -66,7 +66,7 @@ print_r($_COOKIE);
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="./index.php">Inicio</a></li>
-            <li><a href="?pagina=tareas">Nueva Tarea</a></li>
+            <li><a href="?pagina=nueva-tarea">Nueva Tarea</a></li>
             <?php if($usuario_inicio_sesion !== false): ?>
             <li><a href="?cerrar_sesion=1">Cerrar Sesión</a></li>    
             <?php endif; ?>
@@ -155,6 +155,64 @@ print_r($_COOKIE);
             <?php endif; ?>
 
             <?php if($usuario_inicio_sesion !== false): ?>
+
+            <?php if($pagina == 'nueva-tarea'){ ?>
+
+                <div class="nueva_tarea">
+                    <div class="starter-template">
+                        <h1>Nueva Tarea</h1>
+                    </div>
+                    <div class="">
+                    <?php
+                /** MANEJO DE ERRORES DE INICIO DE SESION **/
+                $mensaje = '';
+                $success = isset($_GET['success']) ? intval($_GET['success']) : '';
+                $error = isset($_GET['error']) ? intval($_GET['error']) : '';
+                switch ($error) {
+                    case 1:
+                        $mensaje = "Debe iniciar sesion";
+                        break;
+                    case 2:
+                        $mensaje = "";
+                        break;
+                    case 3:
+                        $mensaje = "";
+                        break;
+                    default:
+                        $mensaje = "Existe un error.";
+                }
+                if($mensaje !== '' && $error !== ''){
+                    echo sprintf('<div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><span class="sr-only">Error:</span> %s </div>', $mensaje);
+                }
+                /*** ***/
+                switch ($success) {
+                    case 1:
+                        $mensaje = "Tarea guardada";
+                        break;
+                }
+
+                if($mensaje !== '' && $success !== ''){
+                    echo sprintf('<div class="alert alert-success" role="alert"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span><span class="sr-only">Exito:</span> %s </div>', $mensaje);
+                }
+                ?>
+
+                    <form method="POST" action="nueva_tarea.php">
+                    <div class="form-group">
+                        <label for="tarea">Tarea</label>
+                        <textarea id="tarea" class="form-control" name="tarea" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha_limite">Fecha limite</label>
+                        <input type="date" id="fecha_limite" name="fecha_limite" class="form-control" autocomplete="off" required/>
+                    </div>
+
+                    <button class="btn btn-success" type="submit">Añadir tarea</button>
+
+                    </form>
+                    </div>
+                </div>
+
+            <?php }else{ ?>
             <div class="pantalla_2">
                 <div class="starter-template">
                 <h1>Tareas</h1>
@@ -191,8 +249,9 @@ print_r($_COOKIE);
                 </div>
                 </div>
             </div>
+            <?php } ?>   
             <?php endif; ?>
-
+             
     </main>
 
     <!-- Bootstrap core JavaScript
