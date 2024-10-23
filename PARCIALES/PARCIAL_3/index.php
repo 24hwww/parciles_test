@@ -8,6 +8,7 @@ $cerrar_sesion = isset($_GET['cerrar_sesion']) ? intval($_GET['cerrar_sesion']) 
 $borrar_tareas = isset($_GET['borrar-tareas']) ? intval($_GET['borrar-tareas']) : 0;
 if($borrar_tareas == 1){
     $_SESSION['tareas'] = [];
+    header('Location: ./index.php?success=3');
 }
 
 if($cerrar_sesion == 1){
