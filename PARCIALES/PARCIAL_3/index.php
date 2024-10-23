@@ -203,7 +203,7 @@ print_r($_COOKIE);
                     </div>
                     <div class="form-group">
                         <label for="fecha_limite">Fecha limite</label>
-                        <input type="date" id="fecha_limite" name="fecha_limite" class="form-control" autocomplete="off" required/>
+                        <input type="text" id="fecha_limite" name="fecha_limite" class="form-control" autocomplete="off" required/>
                     </div>
 
                     <button class="btn btn-success" type="submit">Añadir tarea</button>

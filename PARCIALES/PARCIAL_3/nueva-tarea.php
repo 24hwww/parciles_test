@@ -18,6 +18,11 @@ if($tarea == '' || $fecha_limite == ''){
     exit;
 }
 
+if (!str_contains($fecha_limite, '/')) {
+    header('Location: ./index.php?pagina=nueva-tarea&error=3');
+    exit;
+}
+
 list($day, $month, $year, $hour, $minute) = split('[/ :]', $fecha_limite); 
 $timestamp = mktime($hour, $minute, 0, $month, $day, $year);
 $fecha_limite_timestamp = date("r", $timestamp);
@@ -25,7 +30,7 @@ $fecha_actual = date('Y-m-d');
 $fecha_actual_timestamp = strtotime("now");
 
 if($fecha_limite_timestamp < $fecha_actual_timestamp){
-    header('Location: ./index.php?pagina=nueva-tarea&error=3');
+    header('Location: ./index.php?pagina=nueva-tarea&error=4');
     exit;
 }
 
