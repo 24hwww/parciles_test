@@ -11,7 +11,7 @@ if($usuario_inicio_sesion !== true){
 }
 
 $tarea = isset($_POST['tarea']) ? trim(strip_tags($_POST['tarea'])) : '';
-$fecha_limite = isset($_POST['fecha_limite']) ? trim(strip_tags($_POST['fecha_limite'])) : '';
+$fecha_limite = isset($_POST['fecha_limite']) ? trim($_POST['fecha_limite']) : '';
 
 if($tarea == '' || $fecha_limite == ''){
     header('Location: ./index.php?pagina=nueva-tarea&error=2');
