@@ -238,7 +238,7 @@ echo '</pre>';
                         <tbody> 
                             <?php if(is_array($tareas) && count($tareas) > 0){ ?>
                                 <?php
-                                    $usuario = $ 
+                                    $usuarios_en_tareas = array_column($tareas,'user');
                                 ?>
                             <?php }else{ ?>
                                 <tr> 
