@@ -42,7 +42,7 @@ if($fecha_limite_timestamp <= $fecha_actual_timestamp){
     exit;
 }
 
-$tareas = array_merge($tareas, [
+$tareas[] = array_merge($tareas, [
     'user' => $usuario,
     'tareas' => $tarea,
     'fecha_limite' => $fecha_limite,
