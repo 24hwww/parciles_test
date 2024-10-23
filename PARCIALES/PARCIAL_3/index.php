@@ -23,13 +23,13 @@ $sesion_cookie = isset($_COOKIE['session']) ? $_COOKIE['session'] : [];
 $usuario = isset($sesion_cookie['user']) ? $sesion_cookie['user'] : '';
 $usuario_inicio_sesion = $usuario !== '' ? true : false;
 
-echo '<pre>';
+/*echo '<pre>';
 print_r($_SESSION);
 echo '</pre>';
 
 echo '<pre>';
 print_r($_COOKIE);
-echo '</pre>';
+echo '</pre>';*/
 
 ?>
 <!DOCTYPE html>
