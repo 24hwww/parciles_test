@@ -20,7 +20,8 @@ if($cerrar_sesion == 1){
 }
 
 $sesion_cookie = isset($_COOKIE['session']) ? $_COOKIE['session'] : [];
-$usuario_inicio_sesion = isset($sesion_cookie['user']) ? true : false;
+$usuario = isset($sesion_cookie['user']) ? $sesion_cookie['user'] : '';
+$usuario_inicio_sesion = $usuario !== '' ? true : false;
 
 echo '<pre>';
 print_r($_SESSION);
@@ -239,27 +240,27 @@ echo '</pre>';
                             <?php if(is_array($tareas) && count($tareas) > 0){ ?>
                                 <?php
                                     $usuarios_en_tareas = array_column($tareas,'user');
+                                    if(in_array($usuario, $usuarios_en_tareas)){
+                                        foreach($tareas as $id => $val){
+                                        $tarea = isset($val['tareas']) ? strip_tags($val['tareas']) : '--';
+                                        $fecha_limite = isset($val['fecha_limite']) ? $val['fecha_limite'] : '--';
+                                            ?>
+
+                                <tr> 
+                                <th scope="row"><?php echo $id; ?></th> 
+                                <td><?php echo $tarea; ?></td> 
+                                <td><?php echo $fecha_limite; ?></td> 
+                                    </tr> 
+
+                                            <?php
+                                        }
+                                    }
                                 ?>
                             <?php }else{ ?>
                                 <tr> 
                                 <td colspan="3">Aun no tiene tareas creadas.</td> 
                                 </tr> 
                             <?php } ?>
-                            <tr> 
-                                <th scope="row">1</th> 
-                                <td>---</td> 
-                                <td>Otto</td> 
-                            </tr> 
-                                <tr> 
-                                    <th scope="row">2</th> 
-                                    <td>---</td> 
-                                    <td>Thornton</td> 
-                                </tr> 
-                                <tr> 
-                                    <th scope="row">3</th> 
-                                    <td>---</td> 
-                                    <td>the Bird</td> 
-                                </tr> 
                         </tbody> 
                     </table> 
                 </div>
