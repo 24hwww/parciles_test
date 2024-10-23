@@ -25,10 +25,7 @@ if (!str_contains($fecha_limite, '/')) {
 
 $fecha_post = explode('/',$fecha_limite);
 
-if (!is_array($fecha_post) || count($fecha_post) == 0) {
-    header('Location: ./index.php?pagina=nueva-tarea&error=3');
-    exit;
-}
+if (is_array($fecha_post) && count($fecha_post) > 0) {
 
 $dd = isset($fecha_post[0]) ? intval($fecha_post[0]) : 0;
 $mm = isset($fecha_post[1]) ? intval($fecha_post[1]) : 0;
@@ -48,4 +45,7 @@ $fecha_actual_timestamp = strtotime("now");
 }*/
 
 
-
+}else{
+    header('Location: ./index.php?pagina=nueva-tarea&error=3');
+    exit;
+}
