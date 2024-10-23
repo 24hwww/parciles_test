@@ -173,10 +173,10 @@ print_r($_COOKIE);
                         $mensaje = "Debe iniciar sesion";
                         break;
                     case 2:
-                        $mensaje = "";
+                        $mensaje = "No deje campos vacios";
                         break;
                     case 3:
-                        $mensaje = "";
+                        $mensaje = "La fecha debe ser valida y futura";
                         break;
                     default:
                         $mensaje = "Existe un error.";
