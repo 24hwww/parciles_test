@@ -164,7 +164,7 @@ print_r($_COOKIE);
                     </div>
                     <div class="">
                     <?php
-                /** MANEJO DE ERRORES DE INICIO DE SESION **/
+                /** MANEJO DE ERRORES DE NUEVA TAREA **/
                 $mensaje = '';
                 $success = isset($_GET['success']) ? intval($_GET['success']) : '';
                 $error = isset($_GET['error']) ? intval($_GET['error']) : '';
