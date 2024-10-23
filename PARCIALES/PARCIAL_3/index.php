@@ -5,6 +5,11 @@ $tareas = isset($_SESSION['tareas']) ? $_SESSION['tareas'] : [];
 $pagina = isset($_GET['pagina']) ? strip_tags(trim($_GET['pagina'])) : '';
 $cerrar_sesion = isset($_GET['cerrar_sesion']) ? intval($_GET['cerrar_sesion']) : 0;
 
+$borrar_tareas = isset($_GET['borrar-tareas']) ? intval($_GET['borrar-tareas']) : 0;
+if($borrar_tareas == 1){
+    $_SESSION['tareas'] = [];
+}
+
 if($cerrar_sesion == 1){
     // eliminar sesion
     if (isset($_SERVER['HTTP_COOKIE'])) {
@@ -226,7 +231,14 @@ echo '</pre>';*/
                 <h1>Tareas</h1>
                 </div>
                 <div class="">
-                <div class="panel panel-default"> <div class="panel-heading">Listado de tareas</div> <div class="panel-body"><p>Tareas agregadas</p> 
+                <div class="panel panel-default"> <div class="panel-heading">Listado de tareas</div> 
+                <div class="panel-body">
+                    <div class="col-md-6">
+                        <p>Tareas agregadas</p> 
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a class="btn btn-warning" href="?borrar-tareas=1">Borrar todas las tareas</a>
+                    </div>
                 </div> 
                 <table class="table">
                     <thead> 
